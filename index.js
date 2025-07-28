@@ -1,6 +1,7 @@
 let altura = 0
 let largura = 0
 let vidas = 1
+var tempo = 5
 
 function ajustarTamanhopalcoJogo() {
     altura = window.innerHeight
@@ -11,6 +12,19 @@ function ajustarTamanhopalcoJogo() {
 
 ajustarTamanhopalcoJogo()
 
+var cronometro = setInterval(function () {
+    tempo--
+
+    if (tempo < 0) {
+        clearInterval(cronometro)
+        clearInterval(criaMosquito)
+        alert('Vitoria')
+    } else {
+        document.getElementById('cronometro').innerHTML = tempo
+    }
+
+
+}, 1000)
 
 //Criar o elemento HTML, randomizando e removendo
 function posicaoRandomica() {
